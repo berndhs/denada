@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DeNadaMain</class>
+ <widget class="QMainWindow" name="DeNadaMain">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>483</width>
+    <height>331</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>DeNada</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../denada.qrc">
+    <normaloff>:/denada.png</normaloff>:/denada.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout"/>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>483</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuAgenda">
+    <property name="title">
+     <string>DeNada</string>
+    </property>
+    <addaction name="actionSettings"/>
+    <addaction name="separator"/>
+    <addaction name="actionRestart"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help...</string>
+    </property>
+    <addaction name="actionAbout"/>
+    <addaction name="actionLicense"/>
+   </widget>
+   <addaction name="menuAgenda"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionNewItem">
+   <property name="text">
+    <string>New Item</string>
+   </property>
+  </action>
+  <action name="actionClearOld">
+   <property name="text">
+    <string>Clear Old</string>
+   </property>
+  </action>
+  <action name="actionRestart">
+   <property name="text">
+    <string>Restart</string>
+   </property>
+  </action>
+  <action name="actionLicense">
+   <property name="text">
+    <string>License</string>
+   </property>
+  </action>
+  <action name="actionRevive">
+   <property name="text">
+    <string>Revive Expired</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../denada.qrc"/>
+ </resources>
+ <connections/>
+</ui>

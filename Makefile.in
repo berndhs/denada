@@ -1,0 +1,61 @@
+
+# Makefile for ${PROJECT_NAME}
+#
+
+#//
+#//  Copyright (C) 2010 - Bernd H Stramm 
+#//
+#// This program is distributed under the terms of 
+#// the GNU General Public License version 2 
+#//
+#// This software is distributed in the hope that it will be useful, 
+#// but WITHOUT ANY WARRANTY; without even the implied warranty 
+#// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+#//
+
+PROJECT_NAME=denada
+PRO_FILE = ${PROJECT_NAME}.pro
+MAKEFILE = MakeNada
+TOP_MAKEFILE = Makefile
+TARGETS = bin/${PROJECT_NAME}
+DESKTOP_FILE = ${PROJECT_NAME}.desktop
+DESKTOP_DIR = /usr/share/applications
+ICON_FILE = ${PROJECT_NAME}.png
+ICON_DIR = /usr/share/pixmaps
+
+all: $(MAKEFILE)
+	$(MAKE) -f $(MAKEFILE) all
+
+clean: $(MAKEFILE) FORCE
+	$(MAKE) -f $(MAKEFILE) clean
+
+distclean: $(MAKEFILE) FORCE
+	$(MAKE) -f $(MAKEFILE) distclean
+	rm -f $(MAKEFILE)
+	rm -f $(TOP_MAKEFILE)
+	
+debug: $(MAKEFILE) FORCE
+	$(MAKE) -f $(MAKEFILE) debug
+
+release: $(MAKEFILE) FORCE
+	$(MAKE) -f $(MAKEFILE) release
+
+install: all FORCE
+	install -d $(DESTDIR)
+	install -m 0755 -p $(TARGETS) $(DESTDIR)
+
+desktop: install
+	install -d $(DESKTOP_DIR)
+	install -m 0644 -p $(DESKTOP_FILE) $(DESKTOP_DIR)
+	install -d $(ICON_DIR)
+	install -m 0644 -p $(ICON_FILE) $(ICON_DIR)
+	
+
+qmake: 
+	$(QMAKE) $(PRO_FILE) -o $(MAKEFILE)
+
+$(MAKEFILE): $(PRO_FILE)
+	$(QMAKE) $(PRO_FILE) -o $(MAKEFILE)
+
+FORCE:
+

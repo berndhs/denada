@@ -1,0 +1,9 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+<qresource>
+<file>denada.png</file>
+</qresource>
+<qresource prefix="/help">
+  <file alias="LICENSE.txt">help/LICENSE.txt</file>
+</qresource>
+</RCC>
