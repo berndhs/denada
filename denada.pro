@@ -38,7 +38,6 @@ TARGET = bin/denada
 FORMS = ui/denada.ui \
         ui/DebugLog.ui \
         ui/config-edit.ui \
-        ui/item-edit.ui \
         ui/helpwin.ui \
         
 
