@@ -23,19 +23,41 @@
 # *  Boston, MA  02110-1301, USA.
 # ****************************************************************/
 
+MYNAME = denada
 
 TEMPLATE = app
 
 QT += core gui sql webkit network xml 
-DEFINES += DELIBERATE_DEBUG=1
+CONFIG += debug_and_release
+
+MAKEFILE = Makefile_$${MYNAME}
+
+CONFIG(debug, debug|release) {
+  DEFINES += DELIBERATE_DEBUG=1
+  TARGET = bin/$${MYNAME}_d
+  OBJECTS_DIR = tmp/debug/obj
+  message ("Generating DEBUG version")
+  message ("cxx-flags used $${QMAKE_CXXFLAGS_DEBUG}")
+  message ("c-flags used $${QMAKE_CFLAGS_DEBUG}")
+} else {
+  DEFINES += DELIBERATE_DEBUG=0
+  TARGET = bin/$${MYNAME}
+  OBJECTS_DIR = tmp/release/obj
+  QMAKE_CXXFLAGS_RELEASE -= -g
+  QMAKE_CFLAGS_RELEASE -= -g
+  message ("Generating RELEASE version, no logging")
+  message ("cxx-flags used $${QMAKE_CXXFLAGS_RELEASE}")
+  message ("c-flags used $${QMAKE_CFLAGS_RELEASE}")
+}
+
+
+
 UI_DIR = tmp/ui
 MOC_DIR = tmp/moc
 RCC_DIR = tmp/rcc
-OBJECTS_DIR = tmp/obj
-RESOURCES = denada.qrc
-TARGET = bin/denada
+RESOURCES = $${MYNAME}.qrc
 
-FORMS = ui/denada.ui \
+FORMS = ui/$${MYNAME}.ui \
         ui/DebugLog.ui \
         ui/config-edit.ui \
         ui/helpwin.ui \
@@ -43,7 +65,7 @@ FORMS = ui/denada.ui \
 
 HEADERS = \
           src/main.h \
-          src/denada.h \
+          src/$${MYNAME}.h \
           src/gpl2.h \
           src/cmdoptions.h \
           src/config-edit.h \
@@ -59,6 +81,6 @@ SOURCES = src/main.cpp \
           src/delib-debug.cpp \
           src/deliberate.cpp \
           src/version.cpp \
-          src/denada.cpp \
+          src/$${MYNAME}.cpp \
           src/helpview.cpp \
 

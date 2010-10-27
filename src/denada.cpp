@@ -45,6 +45,7 @@ DeNada::DeNada (QWidget *parent)
    runAgain (false)
 {
   mainUi.setupUi (this);
+  mainUi.actionRestart->setEnabled (false);
   helpView = new HelpView (this);
   Connect ();
 }

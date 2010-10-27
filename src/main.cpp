@@ -76,6 +76,7 @@ main (int argc, char *argv[])
   int result;
   QApplication  app (argc, argv);
 
+#if DELIBERATE_DEBUG
   deliberate::StartDebugLog (showDebug);
   bool logDebug = opts.SeenOpt ("logdebug");
   if (logDebug) {
@@ -83,7 +84,7 @@ main (int argc, char *argv[])
     opts.SetStringOpt ("logdebug",logfile);
     deliberate::StartFileLog (logfile);
   }
-
+#endif
   
   denada::DeNada   denada;
 
