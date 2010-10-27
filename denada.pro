@@ -30,24 +30,22 @@ TEMPLATE = app
 QT += core gui sql webkit network xml 
 CONFIG += debug_and_release
 
-MAKEFILE = Makefile_$${MYNAME}
+MAKEFILE = Make_$${MYNAME}
 
 CONFIG(debug, debug|release) {
   DEFINES += DELIBERATE_DEBUG=1
   TARGET = bin/$${MYNAME}_d
   OBJECTS_DIR = tmp/debug/obj
-  message ("Generating DEBUG version")
-  message ("cxx-flags used $${QMAKE_CXXFLAGS_DEBUG}")
-  message ("c-flags used $${QMAKE_CFLAGS_DEBUG}")
+  message ("DEBUG cxx-flags used $${QMAKE_CXXFLAGS_DEBUG}")
+  message ("DEBUG c-flags used $${QMAKE_CFLAGS_DEBUG}")
 } else {
   DEFINES += DELIBERATE_DEBUG=0
   TARGET = bin/$${MYNAME}
   OBJECTS_DIR = tmp/release/obj
   QMAKE_CXXFLAGS_RELEASE -= -g
   QMAKE_CFLAGS_RELEASE -= -g
-  message ("Generating RELEASE version, no logging")
-  message ("cxx-flags used $${QMAKE_CXXFLAGS_RELEASE}")
-  message ("c-flags used $${QMAKE_CFLAGS_RELEASE}")
+  message ("RELEASE cxx-flags used $${QMAKE_CXXFLAGS_RELEASE}")
+  message ("RELEASE c-flags used $${QMAKE_CFLAGS_RELEASE}")
 }
 
 
@@ -57,15 +55,16 @@ MOC_DIR = tmp/moc
 RCC_DIR = tmp/rcc
 RESOURCES = $${MYNAME}.qrc
 
-FORMS = ui/$${MYNAME}.ui \
+FORMS = \
+        ui/$${MYNAME}.ui \
         ui/DebugLog.ui \
         ui/config-edit.ui \
         ui/helpwin.ui \
         
 
 HEADERS = \
-          src/main.h \
           src/$${MYNAME}.h \
+          src/main.h \
           src/gpl2.h \
           src/cmdoptions.h \
           src/config-edit.h \
@@ -75,12 +74,13 @@ HEADERS = \
           src/helpview.h \
 
 
-SOURCES = src/main.cpp \
+SOURCES = \
+          src/$${MYNAME}.cpp \
+          src/main.cpp \
           src/cmdoptions.cpp \
           src/config-edit.cpp \
           src/delib-debug.cpp \
           src/deliberate.cpp \
           src/version.cpp \
-          src/$${MYNAME}.cpp \
           src/helpview.cpp \
 

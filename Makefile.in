@@ -25,6 +25,7 @@ ICON_DIR = /usr/share/pixmaps
 
 all: $(MAKEFILE)
 	$(MAKE) -f $(MAKEFILE) all
+	ls -ltr bin/${PROJECT_NAME}*
 
 clean: $(MAKEFILE) FORCE
 	$(MAKE) -f $(MAKEFILE) clean
@@ -36,9 +37,11 @@ distclean: $(MAKEFILE) FORCE
 	
 debug: $(MAKEFILE) FORCE
 	$(MAKE) -f $(MAKEFILE) debug
+	ls -ltr bin/${PROJECT_NAME}*
 
 release: $(MAKEFILE) FORCE
 	$(MAKE) -f $(MAKEFILE) release
+	ls -ltr bin/${PROJECT_NAME}*
 
 install: all FORCE
 	install -d $(DESTDIR)
