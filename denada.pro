@@ -31,6 +31,9 @@ QT += core gui sql webkit network xml
 CONFIG += debug_and_release
 
 MAKEFILE = Make_$${MYNAME}
+!include ("options.pri") {
+  message ("no options.pri, using defaults")
+}
 
 CONFIG(debug, debug|release) {
   DEFINES += DELIBERATE_DEBUG=1
