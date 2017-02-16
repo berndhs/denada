@@ -27,8 +27,9 @@ MYNAME = denada
 
 TEMPLATE = app
 
-QT += core gui sql webkit network xml 
+QT += core widgets gui sql webengine webenginewidgets network xml
 CONFIG += debug_and_release
+DEFINES += DELIBERATE_DEBUG
 
 MAKEFILE = Make_$${MYNAME}
 !include ("options.pri") {

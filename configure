@@ -36,7 +36,7 @@
 findqmake () {
 
   QM=`which qmake`
-  QM4=`which qmake-qt4`
+  QM5=`which qmake-qt5`
 
   if [ -z $QM ] 
   then
@@ -44,15 +44,15 @@ findqmake () {
   else
     RES3=`$QM -query QT_VERSION`
   fi
-  if [ -z $QM4 ]
+  if [ -z $QM5 ]
   then
-    RES4="0"
+    RES5="0"
   else
-    RES4=`$QM4 -query QT_VERSION`
+    RES5=`$QM5 -query QT_VERSION`
   fi
 
-  MATCH3=`expr match $RES3 '4.'`
-  MATCH4=`expr match $RES4 '4.'`
+  MATCH3=`expr match $RES3 '5.'`
+  MATCH5=`expr match $RES5 '5.'`
 
   QMAKE="qmake"
 
@@ -60,11 +60,11 @@ findqmake () {
   then
     QMAKE=$QM
   else
-    if [ $MATCH4 -eq 2 ]
+    if [ $MATCH5 -eq 2 ]
     then
-      QMAKE=$QM4
+      QMAKE=$QM5
     else
-      echo "cannot find qmake for Qt4"
+      echo "cannot find qmake for Qt5"
       exit 1
     fi
   fi
@@ -94,7 +94,7 @@ fi
 find_lrelease () {
 
   LREL=`which lrelease`
-  LREL4=`which lrelease-qt4`
+  LREL5=`which lrelease-qt5`
 
   if [ -z $LREL ] 
   then
@@ -102,15 +102,15 @@ find_lrelease () {
   else
     RES3=`$LREL -version`
   fi
-  if [ -z $LREL4 ]
+  if [ -z $LREL5 ]
   then
-    RES4="0"
+    RES5="0"
   else
-    RES4=`$LREL4 -version`
+    RES5=`$LREL5 -version`
   fi
 
-  LRMATCH3=`expr match "$RES3" 'lrelease version 4.'`
-  LRMATCH4=`expr match "$RES4" 'lrelease version 4.'`
+  LRMATCH3=`expr match "$RES3" 'lrelease version 5.'`
+  LRMATCH5=`expr match "$RES5" 'lrelease version 5.'`
 
   LRELEASE="lrelease"
 
@@ -118,11 +118,11 @@ find_lrelease () {
   then
     LRELEASE=$LREL
   else
-    if [ $LRMATCH4 -eq 19 ]
+    if [ $LRMATCH5 -eq 19 ]
     then
-      LRELEASE=$LREL4
+      LRELEASE=$LREL5
     else
-      echo "cannot find LRELEASE for Qt4"
+      echo "cannot find LRELEASE for Qt5"
       exit 1
     fi
   fi

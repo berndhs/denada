@@ -97,8 +97,8 @@ public:
 
   void LogToFile (QString filename);
 
-  bool Log (const char * msg);
-  bool Log (const char * kind, const char * msg);
+  bool Log (const QString & msg);
+  bool Log (const char * kind, const QString & msg);
   void closeEvent (QCloseEvent *event);
 
 public slots:

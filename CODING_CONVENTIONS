@@ -1,0 +1,50 @@
+
+For the Arado project we have some Coding Conventions.
+
+There are only a few, so Pay Attention Please.
+
+- Indenting
+ 
+  Indenting is by 2 (two) spaces. No tab characters, never.
+
+- Brackets
+
+  Brackets (these { } ) are on a new line for functions and classes,
+  and trailing on the same line for if, while, switch.
+
+- Optional Brackets
+
+  Compound statements are enclosed in { } brackets, even when
+  the compound statement is only one line:
+
+  if (foo) {
+    barFunction();
+  ]
+
+- Names
+
+  Names are in Camel Case, like TheFunctionName
+  not all lower case like thewrongfunctionname
+
+  Make names meaningful if possible, but not too long. 
+  
+- Spacing
+
+  For control structues (if, while, for) put a space behing the keyword,
+  like
+
+     if (this != that) {
+       DoSomething (this, that);
+     }
+
+- Line Length
+
+  Keep lines to 80 characters or less when possible. It is almost always 
+  possible.
+
+- IDE specific formating
+
+  If your IDE does not support these convention, get another IDE. Or file a 
+  bug report for your IDE provider. They have no business telling other 
+  people how to write their code.
+
